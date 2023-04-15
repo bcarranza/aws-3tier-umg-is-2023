@@ -19,7 +19,7 @@ resource "aws_subnet" "application-subnet-2" {
   vpc_id                  = aws_vpc.this.id
   cidr_block              = local.vpc.cidr_subnet2
   map_public_ip_on_launch = false
-  availability_zone = "us-east-1a"
+  availability_zone = "us-east-1b"
   tags = {
     Name        = "${local.prefix}-application-subnet-2"
     Environment = local.env
