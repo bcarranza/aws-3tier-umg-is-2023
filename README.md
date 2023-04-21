@@ -32,14 +32,14 @@ ssh -i generated_key.pem ubuntu@<EC2_INSTANCE_PUBLIC_IP>
 Si no esta la llave presente la debes de crear en las instancias anidadas.
 
 # Definición de las capas
-## Presentation Tier
-- This is the topmost level of the application responsible for collecting the information. It provides user interface and handles the interaction with the user, it sends content to browsers in the form of HTML/JS/CSS, and it communicates with other tiers by which it provides the results to the browser/client side.
+## Capa de presentación
+- Este es el nivel más alto de la aplicación, responsable de recolectar la información. Proporciona una interfaz de usuario y maneja la interacción con el usuario, envía contenido a los navegadores en forma de HTML/JS/CSS y se comunica con otras capas para proporcionar los resultados al navegador/lado del cliente.
 
-## Logic Tier
-- Also known as the application tier. This contains a set of rules for processing information, business logic and able to accommodate many users. Sometimes also called as middleware. It processes the inputs received from the clients and interacts with the database and runs on a web server.
+## Capa de lógica
+- También conocida como la capa de aplicación. Contiene un conjunto de reglas para procesar información, lógica empresarial y puede acomodar a muchos usuarios. A veces también se le llama middleware. Procesa las entradas recibidas de los clientes e interactúa con la base de datos y se ejecuta en un servidor web.
 
-## Data Tier
-- A database, comprising both data sets and the database management system or RDBMS software that manages and provides access to the data (back-end). It provides security, data integrity and support to the application.
+## Capa de datos
+- Una base de datos, que comprende tanto conjuntos de datos como el software de sistema de gestión de bases de datos o RDBMS que gestiona y proporciona acceso a los datos (back-end). Proporciona seguridad, integridad de datos y soporte a la aplicación.
 
 
 # References
