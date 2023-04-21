@@ -1,6 +1,6 @@
 # Crear bucket para flow log
 resource "aws_s3_bucket" "this" {
-  bucket = "${local.prefix}-vpc-flow-log"
+  bucket = "bc-${local.prefix}-vpc-flow-log"
   tags   = {
     Name        = "${local.prefix}-vpc-flow-log"
     Environment = local.env
