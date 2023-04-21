@@ -23,3 +23,10 @@ terraform destroy
 
 # Infrastructura esperada
 ![](./img/infra.png)
+
+# Como conectarse a una ec2
+```
+chmod 400 generated_key.pem
+ssh -i generated_key.pem ubuntu@<EC2_INSTANCE_PUBLIC_IP>
+```
+Si no esta la llave presente la debes de crear en las instancias anidadas.
