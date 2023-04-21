@@ -10,13 +10,13 @@ output "flow_log_id" {
   value = aws_flow_log.this.id
 }
 
-output "security_group_id" {
-  value = aws_security_group.this.id
+output "load_balancer_external_dns" {
+  value = aws_lb.external-alb.dns_name
+  description = "DNS name for the external Application Load Balancer"
 }
 
-output "ec2_instance_ids" {
-  value = [
-    aws_instance.subnet1.*.id,
-    aws_instance.subnet2.*.id
-  ]
+output "load_balancer_internal_dns" {
+  value = aws_lb.internal-alb.dns_name
+  description = "DNS name for the internal Application Load Balancer"
 }
+
