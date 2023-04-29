@@ -5,7 +5,7 @@ resource "aws_instance" "ec2-public-1" {
   count                       = 1
   vpc_security_group_ids      = ["${aws_security_group.public.id}"]
   subnet_id                   = "${aws_subnet.public-subnet-1.id}"
-  user_data                   = "${file("data.sh")}"
+  user_data                   = "${file("data-real-world-frontend.sh")}"
   key_name                    = aws_key_pair.generated_key.key_name
   tags = {
     Name        = "${local.prefix}-ec2-public-1"
@@ -25,7 +25,7 @@ resource "aws_instance" "ec2-public-2" {
   count                       = 1
   vpc_security_group_ids      = ["${aws_security_group.public.id}"]
   subnet_id                   = "${aws_subnet.public-subnet-2.id}"
-  user_data                   = "${file("data.sh")}"
+  user_data                   = "${file("data-real-world-frontend.sh")}"
   key_name                    = aws_key_pair.generated_key.key_name
   tags = {
     Name        = "${local.prefix}-ec2-public-2"

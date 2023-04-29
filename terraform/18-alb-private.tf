@@ -1,6 +1,6 @@
 # Creating External LoadBalancer
 resource "aws_lb" "internal-alb" {
-  name               = "Internal-LB"
+  name               = "backend"
   internal           = true
   load_balancer_type = "application"
   security_groups    = [aws_security_group.private.id]

@@ -5,12 +5,12 @@ resource "aws_instance" "ec2-private-1" {
   count                       = 1
   vpc_security_group_ids      = ["${aws_security_group.private.id}"]
   subnet_id                   = "${aws_subnet.private-subnet-1.id}"
-  user_data                   = "${file("data.sh")}"
+  user_data                   = "${file("data-real-world-backend.sh")}"
   key_name                    = aws_key_pair.generated_key.key_name
   tags = {
     Name        = "${local.prefix}-ec2-private-1"
     Environment = local.env
-    Path        = "${basename(abspath(path.module))}/12-ec2-private.tf"
+    Path        = "${basename(abspath(path.module))}/15-ec2-private.tf"
   }
   depends_on = [
     aws_security_group.private,
@@ -25,15 +25,17 @@ resource "aws_instance" "ec2-private-2" {
   count                       = 1
   vpc_security_group_ids      = ["${aws_security_group.private.id}"]
   subnet_id                   = "${aws_subnet.private-subnet-2.id}"
-  user_data                   = "${file("data.sh")}"
+  user_data                   = "${file("data-real-world-backend.sh")}"
   key_name                    = aws_key_pair.generated_key.key_name
   tags = {
     Name        = "${local.prefix}-ec2-private-2"
     Environment = local.env
-    Path        = "${basename(abspath(path.module))}/12-ec2-private.tf"
+    Path        = "${basename(abspath(path.module))}/15-ec2-private.tf"
   }
   depends_on = [
     aws_security_group.private,
-    aws_subnet.private-subnet-2
+    aws_subnet.private-subnet-2,
+    aws_nat_gateway.nat,
+    aws_route_table.private
   ]
 }
