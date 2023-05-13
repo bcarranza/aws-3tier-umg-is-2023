@@ -1,45 +1,28 @@
 #!/bin/bash
 
-# Actualizar paquetes
-apt update
+# Actualiza los paquetes del sistema
+sudo apt-get update -y
 
-# Instalar Node.js, npm y git
-apt install -y nodejs npm git
+# Instala Node.js y npm
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt-get install -y nodejs
 
-# Instalar Nginx
-apt install -y nginx
+# Instala Angular CLI globalmente
+sudo npm install -g @angular/cli@15.2.7
 
-# Clonar el repositorio
-git clone https://github.com/gothinkster/react-redux-realworld-example-app.git
+# Instala Yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo gpg --dearmor -o /usr/share/keyrings/yarn-archive-keyring.gpg
+echo "deb [signed-by=/usr/share/keyrings/yarn-archive-keyring.gpg] https://dl.yarnpkg.com/debian stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt-get update && sudo apt-get install -y yarn
 
-# Navegar al directorio del proyecto
-cd react-redux-realworld-example-app
+# Clona el repositorio
+git clone https://github.com/bcarranza/angular-realworld-example-app.git
+cd angular-realworld-example-app
 
-# Instalar las dependencias del proyecto
-npm install
+# Instala las dependencias del proyecto
+yarn install
 
-# Construir la aplicación para producción
-npm run build
-
-# Crear un enlace simbólico de la carpeta build en la carpeta de Nginx
-ln -s "$(pwd)/build" /var/www/html/react-app
-
-# Modificar la configuración de Nginx
-cat > /etc/nginx/sites-available/default <<EOL
-server {
-    listen 80 default_server;
-    listen [::]:80 default_server;
-
-    root /var/www/html/react-app;
-    index index.html;
-
-    server_name _;
-
-    location / {
-        try_files \$uri /index.html;
-    }
-}
-EOL
-
-# Reiniciar Nginx
-systemctl restart nginx
+# Construye y sirve el proyecto en modo producción
+ng build --prod
+sudo npm install -g http-server
+http-server dist/ -p 80
