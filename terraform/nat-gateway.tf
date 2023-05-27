@@ -41,7 +41,7 @@ resource "aws_eip" "nat" {
   tags = {
     Name        = "${local.prefix}-nat-eip"
     Environment = local.env
-    Path        = "${basename(abspath(path.module))}/08-nat-gateway.tf"
+    Path        = "${basename(abspath(path.module))}/nat-gateway.tf"
   }
 }
 
@@ -51,6 +51,6 @@ resource "aws_nat_gateway" "nat" {
   tags = {
     Name        = "${local.prefix}-nat-gateway"
     Environment = local.env
-    Path        = "${basename(abspath(path.module))}/08-nat-gateway.tf"
+    Path        = "${basename(abspath(path.module))}/nat-gateway.tf"
   }
 }

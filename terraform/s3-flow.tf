@@ -4,6 +4,6 @@ resource "aws_s3_bucket" "this" {
   tags   = {
     Name        = "${local.prefix}-vpc-flow-log"
     Environment = local.env
-    Path        = "${basename(abspath(path.module))}/00-s3-flow.tf"
+    Path        = "${basename(abspath(path.module))}/s3-flow.tf"
   }
 }

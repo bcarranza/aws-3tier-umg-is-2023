@@ -7,7 +7,7 @@ resource "aws_subnet" "public-subnet-1" {
   tags = {
     Name        = "${local.prefix}-public-subnet-1"
     Environment = local.env
-    Path        = "${basename(abspath(path.module))}/06-subnets-public.tf"
+    Path        = "${basename(abspath(path.module))}/subnets-public.tf"
   }
   depends_on = [
     aws_vpc.this
@@ -23,7 +23,7 @@ resource "aws_subnet" "public-subnet-2" {
   tags = {
     Name        = "${local.prefix}-public-subnet-2"
     Environment = local.env
-    Path        = "${basename(abspath(path.module))}/06-subnets-public.tf"
+    Path        = "${basename(abspath(path.module))}/subnets-public.tf"
   }
   depends_on = [
     aws_vpc.this

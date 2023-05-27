@@ -5,7 +5,7 @@ resource "aws_vpc" "this" {
   tags = {
     Name        = "${local.prefix}-vpc"
     Environment = local.env
-    Path        = "${basename(abspath(path.module))}/01-vpc.tf"
+    Path        = "${basename(abspath(path.module))}/vpc.tf"
   }
   depends_on = [
     aws_s3_bucket.this
