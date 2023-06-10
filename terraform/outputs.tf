@@ -20,3 +20,12 @@ output "load_balancer_internal_dns" {
   description = "DNS name for the internal Application Load Balancer"
 }
 
+output "database_private_dns" {
+  value = aws_instance.ec2-db-1[0].private_dns
+  description = "DNS name for the db"
+}
+
+output "database_private_ip" {
+  value = aws_instance.ec2-db-1[0].private_ip
+  description = "IP name for the internal Application Load Balancer"
+}

@@ -13,8 +13,8 @@ resource "aws_security_group" "private" {
   }
 
   ingress {
-    from_port   = 3000
-    to_port     = 3000
+    from_port   = 8081
+    to_port     = 8081
     protocol    = "tcp"
     # Solo damos permiso hacia la bd desde la subnet publica (frontend)
     security_groups = [aws_security_group.alb-private.id]

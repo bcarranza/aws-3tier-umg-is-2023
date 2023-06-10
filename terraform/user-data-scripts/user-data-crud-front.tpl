@@ -11,7 +11,7 @@ apt-get install jq -y
 git clone https://github.com/bcarranza/webappdemo.git
 cd webappdemo/client
 
-echo "REACT_APP_BACKEND_URL=http://'${lb_dns}':3000" > .env
+echo "REACT_APP_BACKEND_URL=http://'${lb_dns}':8081" > .env
 
 
 # Instala el paquete apache2
